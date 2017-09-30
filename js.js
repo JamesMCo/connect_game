@@ -8,42 +8,52 @@ current_state = 0;
 // 5 -> Question on Screen, All Cards Shown
 // 6 -> Question on Screen, All Cards Shown, Link Revealed
 
+key_h_topleft   = "q"; //Selects top left puzzle
+key_h_topmiddle = "w"; //Selects top middle puzzle
+key_h_topright  = "e"; //Selects top right puzzle
+key_h_botleft   = "a"; //Selects bottom left puzzle
+key_h_botmiddle = "s"; //Selects bottom middle puzzle
+key_h_botright  = "d"; //Selects bottom right puzzle
+key_h_reset     = "r"; //Resets selected puzzle hieroglyphs
+key_next        = "n"; //Moves on to next screen/reveals next clue
+key_reveal_ans  = "q"; //Reveals all answers, but not the connection between them/the 4th in a sequence
+
 document.onkeypress = function (e) {
   e = e || window.event;
   if ((current_state == 0) || (current_state == 1)) {
-    if ((e.key == "a") && ($("#hiero_a").hasClass("played") == false)) {
+    if ((e.key == key_h_topleft) && ($("#hiero_a").hasClass("played") == false)) {
       $(".chosen").removeClass("chosen");
       $("#hiero_a").addClass("chosen");
       current_state = 1;
     }
-    else if ((e.key == "b") && ($("#hiero_b").hasClass("played") == false)) {
+    else if ((e.key == key_h_topmiddle) && ($("#hiero_b").hasClass("played") == false)) {
       $(".chosen").removeClass("chosen");
       $("#hiero_b").addClass("chosen");
       current_state = 1;
     }
-    else if ((e.key == "c") && ($("#hiero_c").hasClass("played") == false)) {
+    else if ((e.key == key_h_topright) && ($("#hiero_c").hasClass("played") == false)) {
       $(".chosen").removeClass("chosen");
       $("#hiero_c").addClass("chosen");
       current_state = 1;
     }
-    else if ((e.key == "d") && ($("#hiero_d").hasClass("played") == false)) {
+    else if ((e.key == key_h_botleft) && ($("#hiero_d").hasClass("played") == false)) {
       $(".chosen").removeClass("chosen");
       $("#hiero_d").addClass("chosen");
       current_state = 1;
     }
-    else if ((e.key == "e") && ($("#hiero_e").hasClass("played") == false)) {
+    else if ((e.key == key_h_botmiddle) && ($("#hiero_e").hasClass("played") == false)) {
       $(".chosen").removeClass("chosen");
       $("#hiero_e").addClass("chosen");
       current_state = 1;
     }
-    else if ((e.key == "f") && ($("#hiero_f").hasClass("played") == false)) {
+    else if ((e.key == key_h_botright) && ($("#hiero_f").hasClass("played") == false)) {
       $(".chosen").removeClass("chosen");
       $("#hiero_f").addClass("chosen");
       current_state = 1;
     }
   }
   if (current_state == 1) {
-    if (e.key == "n") {
+    if (e.key == key_next) {
       $("#hiero").fadeOut(750);
       $("#question_a").hide();
       $("#question_b").hide();
@@ -77,11 +87,11 @@ document.onkeypress = function (e) {
     }
   }
   else if (current_state == 2) {
-    if (e.key == "n") {
+    if (e.key == key_next) {
       $("#question_b").fadeIn().css("display", "flex");
       current_state = 3;
     }
-    else if (e.key == "q") {
+    else if (e.key == key_reveal_ans) {
       $("#question_b").fadeIn().css("display", "flex");
       $("#question_c").fadeIn().css("display", "flex");
       $("#question_d").fadeIn().css("display", "flex");
@@ -90,7 +100,7 @@ document.onkeypress = function (e) {
     }
   }
   else if (current_state == 3) {
-    if (e.key == "n") {
+    if (e.key == key_next) {
       $("#question_c").fadeIn().css("display", "flex");
       if (current_question[5] == "connect") {
         current_state = 4;
@@ -100,7 +110,7 @@ document.onkeypress = function (e) {
         current_state = 5;
       }
     }
-    else if (e.key == "q") {
+    else if (e.key == key_reveal_ans) {
       $("#question_b").fadeIn().css("display", "flex");
       $("#question_c").fadeIn().css("display", "flex");
       $("#question_d").fadeIn().css("display", "flex");
@@ -109,13 +119,13 @@ document.onkeypress = function (e) {
     }
   }
   else if (current_state == 4) {
-    if ((e.key == "n") || (e.key == "q")) {
+    if ((e.key == key_next) || (e.key == key_reveal_ans)) {
       $("#question_d").fadeIn().css("display", "flex");
       current_state = 5;
     }
   }
   else if (current_state == 5) {
-    if (e.key == "n") {
+    if (e.key == key_next) {
       $("#question_l").fadeIn();
       if (current_question[5] == "sequence") {
         $("#question_d").html("<h1>" + current_question[3] + "</h1>")
@@ -124,7 +134,7 @@ document.onkeypress = function (e) {
     }
   }
   else if (current_state == 6) {
-    if (e.key == "n") {
+    if (e.key == key_next) {
       $("#question").fadeOut(750);
 
       $(".chosen").addClass("played");
@@ -134,7 +144,7 @@ document.onkeypress = function (e) {
       current_state = 0;
     }
   }
-  if (e.key == "r") {
+  if (e.key == key_h_reset) {
   $(".played").removeClass("played");
   }
 }

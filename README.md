@@ -19,15 +19,16 @@ questions = [
 The first four items per question are the four clues that players will see (in a sequence question, they will only see three clues before the connection is revealed). The fifth item is the text explaining what the connection between the clues was. The final item defines the question type, and it must be either `connect` or `sequence`. A connection question, identified to the players by a **blue** UI, shows the four clues and asks the players to find how the four are related, whereas a sequence question, identified to the players by a **green** UI, will ask the players to find the fourth item in the given sequence.
 
 # Game Controls
+All game controls listed here can be modified in the `js.js` file
 ## Selection Screen
 | Key | Action                                                                               |
 | --- | ------------------------------------------------------------------------------------ |
-|  a  | Select the top-left question                                                         |
-|  b  | Select the top-middle question                                                       |
-|  c  | Select the top-right question                                                        |
-|  d  | Select the bottom-left question                                                      |
-|  e  | Select the bottom-middle question                                                    |
-|  f  | Select the bottom-right question                                                     |
+|  q  | Select the top-left question                                                         |
+|  w  | Select the top-middle question                                                       |
+|  e  | Select the top-right question                                                        |
+|  a  | Select the bottom-left question                                                      |
+|  s  | Select the bottom-middle question                                                    |
+|  d  | Select the bottom-right question                                                     |
 |  n  | Open question from the selection screen (requires a-f to be selected first)          |
 |  r  | Reset the "played" status of the question buttons (doesn't reset played questions\*) |
 
