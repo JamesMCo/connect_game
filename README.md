@@ -5,7 +5,7 @@ Connect game is based on the BBC show [Only Connect](http://www.bbc.co.uk/progra
 
 # Setup
 Either visit [the online version](https://jammy4312.me/connect_game), or:
-1. Download the repository to your computer. [[Link](https://github.com/Jammy4312/connect_game/archive/master.zip)]
+1. Download the repository to your computer. [[Link](https://github.com/JamesMCo/connect_game/archive/master.zip)]
 2. Modify the `data.js` file to include your own connecting words or sequences.
 3. Open the `index.html` file in your browser.
 
